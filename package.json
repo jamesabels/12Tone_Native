@@ -1,0 +1,20 @@
+{
+  "name": "Project",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "react": "15.1.0",
+    "react-native": "0.27.2"
+  },
+  "devDependencies": {
+    "native-base": "^0.5.2",
+    "react-native-router-flux": "^3.32.0",
+    "react-native-scrollable-tab-view": "^0.5.3",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
+  }
+}
