@@ -2,5 +2,9 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-// AboutManager-Bridging-Header.h
+// AudioManager-Bridging-Header.h
 #import "RCTBridgeModule.h"
+
+@interface AudioManager : NSObject <RCTBridgeModule>
+
+@end

@@ -10,5 +10,9 @@ SynthTools.PLAY_NOTE = function (note) {
     console.log(note.fq());
     // console.log("BRIDGED SWIFT FUNCTION ")
     // console.dir(NativeModules.CalendarManager);
-    NativeModules.AudioManager.addEvent('One', 'Two', 3);
+    let noteFQ = Math.round(note.fq()); 
+    console.log('noteFQ', noteFQ);
+
+    NativeModules.AudioManager.playNote(2.11233);
+    
 }

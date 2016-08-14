@@ -7,15 +7,38 @@
 //
 
 import Foundation
+import AudioKit
 
 // AudioManager.swift
+
+
 
 
 @objc(AudioManager)
 class AudioManager: NSObject {
   
-  @objc func addEvent(name: String, location: String, date: NSNumber) -> Void {
-    NSLog("%@ %@ %@", name, location, date);
+  @objc func playNote(freq:Int) -> Void {
+    let oscillator = AKOscillator()
+    
+    AudioKit.output = oscillator
+    AudioKit.start()
+    
+    NSLog("%@", freq);
+    
+    let currentFreq = freq;
+    let freqDouble : Double = Double(currentFreq);
+
+    NSLog("%@", currentFreq);
+    NSLog("%@", freqDouble);
+    
+    // Set oscillator params
+    oscillator.frequency = Double(freqDouble);
+    
+    oscillator.start()
+    
+    sleep(1)
+    
+    oscillator.stop();
+    AudioKit.stop();
   }
-  
 }
