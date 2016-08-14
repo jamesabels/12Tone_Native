@@ -7,7 +7,13 @@ import { View, StyleSheet, TouchableHighlight} from 'react-native'
 // Import Native Base 
 import { Text, Grid, Row, Col } from 'native-base';
 
-export default class NoteList extends Component {
+// Import Actions 
+import SynthActions from '../actions/synth_actions.js';  
+
+//Import Connect 
+import { connect } from 'react-redux';
+
+class NoteList extends Component {
 
     constructor(props) {
       super(props)
@@ -52,8 +58,25 @@ export default class NoteList extends Component {
     getPressedNote (key) {
         console.log('Getting Pressed Key!'); 
         console.log(key)
+        this.props.playNote(key)
     }
  }
+
+ function mapStateToProps(state) {
+    return {
+      state: state,
+      scale: state.notation.scale
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        playNote: function (note) {
+            dispatch(SynthActions.PLAY_NOTE(note));
+        } 
+    }
+}
+
 
 var styles = StyleSheet.create({
   listContainer: {
@@ -70,3 +93,5 @@ var styles = StyleSheet.create({
     textAlign: 'center',
   }
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteList);

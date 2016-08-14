@@ -25,11 +25,6 @@ class DisplayPage extends Component {
   constructor(props) {
     super(props)
   }
-
-  componentDidMount () {
-  
-  }
-
   render() {
     return (
       <Container style={{marginTop: 25}}> 
