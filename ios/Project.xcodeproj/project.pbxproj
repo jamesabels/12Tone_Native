@@ -21,8 +21,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		1AF346E41D60262400F5FAD1 /* CalenderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF346E31D60262400F5FAD1 /* CalenderManager.swift */; };
-		1AF346F11D60267F00F5FAD1 /* CalendarManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF346F01D60267F00F5FAD1 /* CalendarManagerBridge.m */; };
+		1AF346F31D6031B300F5FAD1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF346F21D6031B300F5FAD1 /* AudioManager.swift */; };
+		1AF346F51D6031D800F5FAD1 /* AudioManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF346F41D6031D800F5FAD1 /* AudioManagerBridge.m */; };
 		224028BBA1174FE484F66415 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E798B8BF45A4E95916DA0AE /* Entypo.ttf */; };
 		28300BFA11C54CF49C850477 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 753B85FE28D642B197AB0BA6 /* Zocial.ttf */; };
 		4863179159C44D5CA08B4222 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B777CB089BD143B59944F7EC /* Octicons.ttf */; };
@@ -144,8 +144,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Project/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1AF346E21D60262400F5FAD1 /* Project-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project-Bridging-Header.h"; sourceTree = "<group>"; };
-		1AF346E31D60262400F5FAD1 /* CalenderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderManager.swift; sourceTree = "<group>"; };
-		1AF346F01D60267F00F5FAD1 /* CalendarManagerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManagerBridge.m; sourceTree = "<group>"; };
+		1AF346F21D6031B300F5FAD1 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		1AF346F41D6031D800F5FAD1 /* AudioManagerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManagerBridge.m; sourceTree = "<group>"; };
 		3559684D28A74CF6ACB297C3 /* Chalkboard.ttc */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Chalkboard.ttc; path = "../node_modules/native-base/Fonts/Chalkboard.ttc"; sourceTree = "<group>"; };
 		3AA0A8507F884CFDB624347C /* Cochin.ttc */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Cochin.ttc; path = "../node_modules/native-base/Fonts/Cochin.ttc"; sourceTree = "<group>"; };
 		3E798B8BF45A4E95916DA0AE /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
@@ -283,9 +283,9 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				1AF346E31D60262400F5FAD1 /* CalenderManager.swift */,
 				1AF346E21D60262400F5FAD1 /* Project-Bridging-Header.h */,
-				1AF346F01D60267F00F5FAD1 /* CalendarManagerBridge.m */,
+				1AF346F21D6031B300F5FAD1 /* AudioManager.swift */,
+				1AF346F41D6031D800F5FAD1 /* AudioManagerBridge.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -646,10 +646,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AF346F11D60267F00F5FAD1 /* CalendarManagerBridge.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				1AF346E41D60262400F5FAD1 /* CalenderManager.swift in Sources */,
+				1AF346F51D6031D800F5FAD1 /* AudioManagerBridge.m in Sources */,
+				1AF346F31D6031B300F5FAD1 /* AudioManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
