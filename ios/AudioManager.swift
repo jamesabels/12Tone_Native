@@ -11,28 +11,25 @@ import AudioKit
 
 // AudioManager.swift
 
-
-
-
 @objc(AudioManager)
 class AudioManager: NSObject {
   
-  @objc func playNote(freq:Int) -> Void {
+  @objc func playNote(freq:NSNumber) -> Void {
     let oscillator = AKOscillator()
     
     AudioKit.output = oscillator
     AudioKit.start()
     
-    NSLog("%@", freq);
+    NSLog("%@ FROM JS", freq);
     
-    let currentFreq = freq;
-    let freqDouble : Double = Double(currentFreq);
-
-    NSLog("%@", currentFreq);
-    NSLog("%@", freqDouble);
+    let doubleFreq : Double = freq as Double;
     
+    NSLog("%@ CONVERTED TO DOUBLE", doubleFreq);
+  
     // Set oscillator params
-    oscillator.frequency = Double(freqDouble);
+    oscillator.frequency = doubleFreq;
+
+    NSLog("%@ TEST", oscillator.frequency);
     
     oscillator.start()
     
