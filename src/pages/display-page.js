@@ -24,11 +24,6 @@ class DisplayPage extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-        keyLabel: "C Major",
-        key: ["C", "D", "E", "F", "G", "A", "B"],
-        chords: ["C Maj","D Maj", "E Min", "F Maj", "G Maj", "A Maj", "B Min"]
-    }
   }
 
   componentDidMount () {
@@ -41,8 +36,8 @@ class DisplayPage extends Component {
         <Content>
             <Navbar />
             <ScrollableTabView>
-                <NoteList tabLabel="Notes" notes={this.state.key}/> 
-                <ChordList tabLabel="Chords" chords={this.state.chords} />
+                <NoteList tabLabel="Notes" notes={this.props.scale}/>
+                <ChordList tabLabel="Chords" chords={this.props.scale} />
             </ScrollableTabView>
         </Content>
       </Container>
@@ -52,7 +47,8 @@ class DisplayPage extends Component {
 
 function mapStateToProps(state) {
     return {
-        image: state.test.image
+      state: state,
+      scale: state.notation.scale
     }
 }
 

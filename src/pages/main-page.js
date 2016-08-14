@@ -11,7 +11,7 @@ import {Actions} from 'react-native-router-flux';
 import { LayoutStyles, ButtonStyles } from '../style/style.js';  
 
 // Import Actions 
-import TestActions from '../actions/test_actions.js';  
+import NotationActions from '../actions/notation_actions.js';  
 
 //Import Connect 
 import { connect } from 'react-redux';
@@ -23,6 +23,10 @@ class MainPage extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      selectedRoot: 'C',
+      selectedMode: 'Maj'
+    }
   }
 
   componentDidMount () {
@@ -35,12 +39,13 @@ class MainPage extends Component {
         <Content>
           <Navbar hideButtons={true}/>
           <View>
-            <Text>Key</Text>
+            <Text>Get {this.props.rootNote + ' ' + this.props.mode}</Text>
             <Picker
+                ref="rootSelect"
                 iosHeader="Select Your Key"
                 mode="dropdown"
-                selectedValue={"C"}
-                onValueChange={() => {console.log('Picker Changed!!!')}}>
+                selectedValue={this.props.rootNote}
+                onValueChange={(value) => this.getSelectedRoot(value)}>
                 <Item label="C" value="C"/>
                 <Item label="C#" value="C#" />
                 <Item label="D" value="D" />
@@ -57,12 +62,12 @@ class MainPage extends Component {
           </View>
 
           <View>
-            <Text>Mode</Text>
             <Picker
+                ref="modeSelect"
                 iosHeader="Select Your Mode"
                 mode="dropdown"
-                selectedValue={"Maj"}
-                onValueChange={() => {console.log('Picker Changed!!!')}}>
+                selectedValue={this.props.mode}
+                onValueChange={(value) => this.getSelectedMode(value)}>
                 <Item label="Major" value="Maj"/>
                 <Item label="Minor" value="Min"/>
             </Picker>
@@ -78,21 +83,47 @@ class MainPage extends Component {
       </Container>
     )
   }
+  getSelectedRoot (value) {
+
+    this.props.setRoot(value)
+
+    console.log(this.props.state); 
+  }
+  getSelectedMode (value) {
+    
+    this.props.setMode(value)
+
+    console.log(this.props.mode); 
+  }
   submit () {
+
+    this.props.getScale(this.props.rootNote, this.props.mode);
+
+    console.log('ACTUAL SCALE', this.props.scale); 
+    
     Actions.Display(); 
   }
-}
+ }
 
 function mapStateToProps(state) {
     return {
-        image: state.test.image
+        state: state,
+        rootNote: state.notation.rootNote,
+        mode: state.notation.mode,
+        scale: state.notation.scale
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetch: function (url) {
-            dispatch(TestActions.GET_DATA(url));
+        getScale: function (rootNote, mode) {
+            dispatch(NotationActions.GET_SCALE(rootNote, mode));
+        },
+        setRoot: function (rootNote) {
+            dispatch(NotationActions.SET_ROOT(rootNote));
+        },
+        setMode: function (mode) {
+            dispatch(NotationActions.SET_MODE(mode));
         } 
     }
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import testReducer from './test_reducer';
+import notationReducer from './notation_reducer';
 
 const rootReducer = combineReducers({
-  test: testReducer
+  notation: notationReducer
 });
 
 export default rootReducer;
