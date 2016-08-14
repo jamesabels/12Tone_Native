@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // Import React Native
-import {AppRegistry} from 'react-native';
+import {AppRegistry, NativeModules} from 'react-native';
 
 // Import App
 import App from './src/containers/app';
